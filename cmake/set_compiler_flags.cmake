@@ -19,3 +19,7 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang")
     set(CMAKE_C_FLAGS_COVERAGE    "-O0 -g3 --coverage")
 endif()
 
+if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
+    # Strictest warnings, UTF-8 source and execution charset
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W3 /utf-8")
+endif()
