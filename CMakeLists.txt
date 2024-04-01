@@ -5,7 +5,6 @@ set (PROJECT_NAME "project_skeleton")
 set (VERSION_MAJOR 1)
 set (VERSION_MINOR 0)
 
-
 #set(CMAKE_GENERATOR "Ninja")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -25,8 +24,8 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 add_subdirectory(src)
 
-#option(BUILD_TESTS "Build tests" ON)
-#if(BUILD_TESTS)
+option(BUILD_TESTS "Build tests" ON)
+if(BUILD_TESTS)
     # GoogleTest requires at least C++14
     set(CMAKE_CXX_STANDARD 14)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -42,9 +41,9 @@ add_subdirectory(src)
     include(Dart)
     enable_testing()
     add_subdirectory(tests)
-#endif(BUILD_TESTS)
+endif(BUILD_TESTS)
 
-option(BUILD_DOC "Build documentation")
+option(BUILD_DOC "Build documentation" ON)
 if(BUILD_DOC)
   # check if Doxygen is installed
   find_package(Doxygen)

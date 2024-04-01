@@ -7,6 +7,18 @@ extern "C" {
 
 #include <config.h>
 
+/**
+ * @fn int foo(void)
+ * @brief Foo brief.
+ * 
+ * This function do nothing.
+ * @param no_param No param.
+ * @return zero.
+ * 
+ * @see bar
+*/
+
+
 #ifdef __cplusplus
 }
 #endif 
