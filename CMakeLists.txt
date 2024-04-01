@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.24)
+cmake_policy(SET CMP0135 NEW)
 
 set (PROJECT_NAME "project_skeleton")
 set (VERSION_MAJOR 1)
 set (VERSION_MINOR 0)
 
-
-set(CMAKE_GENERATOR "Ninja")
+#set(CMAKE_GENERATOR "Ninja")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
@@ -24,7 +24,7 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 add_subdirectory(src)
 
-option(BUILD_TESTS "Build tests")
+option(BUILD_TESTS "Build tests" ON)
 if(BUILD_TESTS)
     # GoogleTest requires at least C++14
     set(CMAKE_CXX_STANDARD 14)
@@ -43,7 +43,7 @@ if(BUILD_TESTS)
     add_subdirectory(tests)
 endif(BUILD_TESTS)
 
-option(BUILD_DOC "Build documentation")
+option(BUILD_DOC "Build documentation" ON)
 if(BUILD_DOC)
   # check if Doxygen is installed
   find_package(Doxygen)
